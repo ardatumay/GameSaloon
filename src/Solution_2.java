@@ -21,13 +21,13 @@ public class Solution_2 {
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		int N, x,y,z;
+		int N;
 		
 		N=scan.nextInt();
 		Prism ODA = new Prism(scan.nextInt(), scan.nextInt(), scan.nextInt());
 		
 		Prism [] Kutular = new Prism[N];
-		int [][] Kupler = new int [N][3];
+	
 		
 		for (int i = 0; i < N; i++) {
 			Kutular[i]=new Prism(scan.nextInt(), scan.nextInt(), scan.nextInt());
