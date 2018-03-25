@@ -53,10 +53,28 @@ public class Solution_2 {
 
 		Kutular = filterInput(Kutular, ODA);
 		//Arrays.sort(Kutular, new Hacmegoresort());
-		Prism [][] CombKutular = tumKombinasyonlar(Kutular);
+		Prism[][] CombKutular = tumKombinasyonlar(Kutular);
 		Arrays.sort(CombKutular, new Hacmegoresort());
-		for(Prism p[] : CombKutular){
+		for (Prism p[] : CombKutular) {
 			System.out.println(p[2].hacim);
+		}
+		Prism yeniOda;
+		for (int i = CombKutular.length; i >= 0; i--) {
+			odayaSigarMi(CombKutular[i][0], ODA);
+
+				if (CombKutular[i][0].isFitOda[0]) {
+
+				}else if (CombKutular[i][0].isFitOda[1]){
+
+				}else if (CombKutular[i][0].isFitOda[2]){
+
+				}else if (CombKutular[i][0].isFitOda[3]){
+
+				}else if (CombKutular[i][0].isFitOda[4]){
+
+				}else if (CombKutular[i][0].isFitOda[5]){
+
+				}
 		}
 	}
 
