@@ -82,15 +82,18 @@ public class Solution_2 {
             }else if (CombKutular[i][0].isFitOda[3]) {
 				Prism odaNew = new Prism(ODA.x-CombKutular[i][0].z,ODA.y-CombKutular[i][0].x,ODA.z-CombKutular[i][0].y);
 				odayaSigarMi(CombKutular[i][1], odaNew);
+				isFitRoom(CombKutular[i][1].isFitOda, CombKutular[i][2].hacim);
 				
 
 			} else if (CombKutular[i][0].isFitOda[4]) {
 				Prism odaNew = new Prism(ODA.x-CombKutular[i][0].y,ODA.y-CombKutular[i][0].z,ODA.z-CombKutular[i][0].x);
 				odayaSigarMi(CombKutular[i][1], odaNew);
+				isFitRoom(CombKutular[i][1].isFitOda, CombKutular[i][2].hacim);
 
 			} else if (CombKutular[i][0].isFitOda[5]) {
 				Prism odaNew = new Prism(ODA.x-CombKutular[i][0].x,ODA.y-CombKutular[i][0].y,ODA.z-CombKutular[i][0].x);
 				odayaSigarMi(CombKutular[i][1], odaNew);
+				isFitRoom(CombKutular[i][1].isFitOda, CombKutular[i][2].hacim);
 
 			}
         }
