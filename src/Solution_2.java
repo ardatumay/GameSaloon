@@ -37,14 +37,7 @@ public class Solution_2 {
 		Prism[] resultKutular =  filteredKutular.toArray(new Prism[0]);
 		return resultKutular;
 	}
-	private static void isFitRoom(boolean isFit[], int Volume){
-		for(boolean b : isFit){
-			if(b){
-				System.out.println(Volume);
-				System.exit(0);
-			}
-		}
-	}
+
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int N;
@@ -79,13 +72,20 @@ public class Solution_2 {
 			}else if (CombKutular[i][0].isFitOda[2]){
 				yeniOda = new Prism(ODA.y - CombKutular[i][0].x, ODA.x - CombKutular[i][0].y, ODA.z - CombKutular[i][0].z);
 				isFitRoom(CombKutular[i][1].isFitOda, CombKutular[i][2].hacim);
-			}else if (CombKutular[i][0].isFitOda[3]){
+			}else if (CombKutular[i][0].isFitOda[3]) {
+				Prism odaNew = new Prism(ODA.x-CombKutular[i][0].z,ODA.y-CombKutular[i][0].x,ODA.z-CombKutular[i][0].y);
+				odayaSigarMi(CombKutular[i][1], odaNew);
 
-			}else if (CombKutular[i][0].isFitOda[4]){
 
-			}else if (CombKutular[i][0].isFitOda[5]){
+			} else if (CombKutular[i][0].isFitOda[4]) {
+				Prism odaNew = new Prism(ODA.x-CombKutular[i][0].y,ODA.y-CombKutular[i][0].z,ODA.z-CombKutular[i][0].x);
+				odayaSigarMi(CombKutular[i][1], odaNew);
 
-			}
+			} else if (CombKutular[i][0].isFitOda[5]) {
+				Prism odaNew = new Prism(ODA.x-CombKutular[i][0].x,ODA.y-CombKutular[i][0].y,ODA.z-CombKutular[i][0].x);
+				odayaSigarMi(CombKutular[i][1], odaNew);
+
+				}
 		}
 	}
 
