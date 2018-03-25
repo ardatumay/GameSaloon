@@ -11,15 +11,16 @@ public class Solution_2 {
 			z = c;
 			hacim = x * y * z;
 		}
-		Prism(Prism p1,Prism p2){
+
+		Prism(Prism p1, Prism p2) {
 			hacim = p1.hacim + p2.hacim;
 		}
 
 	}
 
 	static class Hacmegoresort implements Comparator<Prism[]> {
-		public int compare(Prism a[] , Prism b[]) {
-			return a[2].hacim- b[2].hacim;
+		public int compare(Prism a[], Prism b[]) {
+			return a[2].hacim - b[2].hacim;
 		}
 	}
 
@@ -34,7 +35,7 @@ public class Solution_2 {
 				filteredKutular.add(kutular[i]);
 			}
 		}
-		Prism[] resultKutular =  filteredKutular.toArray(new Prism[0]);
+		Prism[] resultKutular = filteredKutular.toArray(new Prism[0]);
 		return resultKutular;
 	}
 
@@ -52,7 +53,7 @@ public class Solution_2 {
 		}
 
 		Kutular = filterInput(Kutular, ODA);
-		//Arrays.sort(Kutular, new Hacmegoresort());
+		// Arrays.sort(Kutular, new Hacmegoresort());
 		Prism[][] CombKutular = tumKombinasyonlar(Kutular);
 		Arrays.sort(CombKutular, new Hacmegoresort());
 		for (Prism p[] : CombKutular) {
@@ -62,19 +63,26 @@ public class Solution_2 {
 		for (int i = CombKutular.length; i >= 0; i--) {
 			odayaSigarMi(CombKutular[i][0], ODA);
 
-				if (CombKutular[i][0].isFitOda[0]) {
+			if (CombKutular[i][0].isFitOda[0]) {
 
-				}else if (CombKutular[i][0].isFitOda[1]){
+			} else if (CombKutular[i][0].isFitOda[1]) {
 
-				}else if (CombKutular[i][0].isFitOda[2]){
+			} else if (CombKutular[i][0].isFitOda[2]) {
 
-				}else if (CombKutular[i][0].isFitOda[3]){
+			} else if (CombKutular[i][0].isFitOda[3]) {
+				Prism odaNew = new Prism(ODA.x-CombKutular[i][0].z,ODA.y-CombKutular[i][0].x,ODA.z-CombKutular[i][0].y);
+				odayaSigarMi(CombKutular[i][1], odaNew);
+				
 
-				}else if (CombKutular[i][0].isFitOda[4]){
+			} else if (CombKutular[i][0].isFitOda[4]) {
+				Prism odaNew = new Prism(ODA.x-CombKutular[i][0].y,ODA.y-CombKutular[i][0].z,ODA.z-CombKutular[i][0].x);
+				odayaSigarMi(CombKutular[i][1], odaNew);
 
-				}else if (CombKutular[i][0].isFitOda[5]){
+			} else if (CombKutular[i][0].isFitOda[5]) {
+				Prism odaNew = new Prism(ODA.x-CombKutular[i][0].x,ODA.y-CombKutular[i][0].y,ODA.z-CombKutular[i][0].x);
+				odayaSigarMi(CombKutular[i][1], odaNew);
 
-				}
+			}
 		}
 	}
 
