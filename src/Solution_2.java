@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution_2 {
 	static class Prism {
@@ -14,12 +11,15 @@ public class Solution_2 {
 			z = c;
 			hacim = x * y * z;
 		}
+		Prism(Prism p1,Prism p2){
+			hacim = p1.hacim + p2.hacim;
+		}
 
 	}
 
-	static class Hacmegoresort implements Comparator<Prism> {
-		public int compare(Prism a, Prism b) {
-			return a.hacim - b.hacim;
+	static class Hacmegoresort implements Comparator<Prism[]> {
+		public int compare(Prism a[] , Prism b[]) {
+			return a[2].hacim- b[2].hacim;
 		}
 	}
 
@@ -34,7 +34,7 @@ public class Solution_2 {
 				filteredKutular.add(kutular[i]);
 			}
 		}
-		Prism[] resultKutular = (Prism[]) filteredKutular.toArray();
+		Prism[] resultKutular =  filteredKutular.toArray(new Prism[0]);
 		return resultKutular;
 	}
 
@@ -52,18 +52,23 @@ public class Solution_2 {
 		}
 
 		Kutular = filterInput(Kutular, ODA);
-		Arrays.sort(Kutular, new Hacmegoresort());
-
+		//Arrays.sort(Kutular, new Hacmegoresort());
+		Prism [][] CombKutular = tumKombinasyonlar(Kutular);
+		Arrays.sort(CombKutular, new Hacmegoresort());
+		for(Prism p[] : CombKutular){
+			System.out.println(p[2].hacim);
+		}
 	}
 
 	public static Prism[][] tumKombinasyonlar(Prism[] kutular) {
 		int kombinasyon = kutular.length * (kutular.length - 1) / 2;
-		Prism[][] kombArray = new Prism[kombinasyon][2];
+		Prism[][] kombArray = new Prism[kombinasyon][3];
 		int k = 0;
 		for (int i = 0; i < kutular.length; i++) {
-			for (int j = 1; j < kutular.length; j++) {
+			for (int j = i + 1; j < kutular.length; j++) {
 				kombArray[k][0] = kutular[i];
 				kombArray[k][1] = kutular[j];
+				kombArray[k][2] = new Prism(kombArray[k][0], kombArray[k][1]);
 				k++;
 			}
 		}
